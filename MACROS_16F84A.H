@@ -1,8 +1,6 @@
 ; MACROS_16F84A.H
 ;
-; MyMACROs
-; Copyright 2003 by José Fonte
-; José Fonte | mike@nocturno.org | Nov.2003
+; José Fonte | Nov.2003
 
 
 ;==================================
