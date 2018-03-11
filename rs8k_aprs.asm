@@ -1,5 +1,5 @@
 ;
-; ENG: Mar. 2018: Code for PIC16Fxx
+; Code for PIC16Fxx
 ; The goal is to convert this Marine VHF radio to APRS frequencies.
 ; Frequencies are 144.800 and 144.850 MHz.
 ; 
@@ -54,19 +54,19 @@
 ;  
 ; 07/Mar/07 : Initial version
 ;
-; CT1ENQ
+; Jose Fonte - CT1ENQ
 ;
 ; ***************************************************************************
 
 	;PROCESSOR PIC16F84A
 	list	p=16F84A
-	#include <p16F84A.inc>			; this is where all registers and bits are defined
-	#include "macros_16F84A.h"	   ; this is where i keep my F84A MACROs
+	#include <p16F84A.inc>		; this is where all registers and bits are defined
+	#include "macros_16F84A.h"	; this is where i keep my F84A MACROs
 
 	__CONFIG _CP_OFF & _XT_OSC & _PWRTE_ON & _WDT_OFF
-    ;__config _hs_osc & _wdt_off & _pwrte_on & _cp_off 
+    	;__config _hs_osc & _wdt_off & _pwrte_on & _cp_off 
 
-	errorlevel      -302    		;Eliminate bank warning
+	errorlevel      -302    	;Eliminate bank warning
 
 
 ; CONSTANTS ***********************************************************************
@@ -90,8 +90,8 @@
   	channel
   	tx_temp
   	tx
-  	w_temp					; variable used for context saving 
- 	status_temp				; variable used for context saving 
+  	w_temp			; variable used for context saving 
+ 	status_temp		; variable used for context saving 
 
    ENDC
 
@@ -102,16 +102,16 @@
 
 
 	ORG   0x004           ; interrupt vector location
-	movwf	w_temp          ; save off current W register contents
-	movf	STATUS,w        ; move status register into W register
-	movwf	status_temp     ; save off contents of STATUS register
+	movwf	w_temp        ; save off current W register contents
+	movf	STATUS,w      ; move status register into W register
+	movwf	status_temp   ; save off contents of STATUS register
 
 
 ; isr code can go here or be located as a call subroutine elsewhere
 
 
 	movf  status_temp,w   ; retrieve copy of STATUS register
-	movwf	STATUS          ; restore pre-isr STATUS register contents
+	movwf	STATUS        ; restore pre-isr STATUS register contents
 	swapf w_temp,f
 	swapf w_temp,w        ; restore pre-isr W register contents
 	retfie                ; return from interrupt
@@ -137,7 +137,7 @@ main
 	CLRF TRISA		; make all Port bits outputs
 	CLRF TRISB
 
-;  BSF TRISA,1		; 2 input pins TX & CH Selector
+;  	BSF TRISA,1		; 2 input pins TX & CH Selector
 ;	BSF TRISA,2
 	
 	MOVLW 0x06		; Same as before but pin change at same time
@@ -148,7 +148,7 @@ main
 ; Start of channel processing
 ; Check which is the selected channel then check the TX status. Repeat this procedure.
 
-  ;CLRF PORTB ; For debug
+  	;CLRF PORTB ; For debug
 
 ; Main loop for TX/RX and CH1/CH2 Seection
 
