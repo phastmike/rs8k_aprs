@@ -1,4 +1,4 @@
-#Convert RS8000 for APRS
+# Convert RS8000 for use in APRS
 
 This is the assembly code for PIC16F84 which will convert the [Shipmate RS 8000](http://www.discriminator.nl/rs8000/index-en.html) Radio PLL for use in [APRS](https://en.wikipedia.org/wiki/Automatic_Packet_Reporting_System).
 
