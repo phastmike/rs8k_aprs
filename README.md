@@ -5,7 +5,7 @@ This is the assembly code for PIC16F84 which will convert the [Shipmate RS 8000]
 It was done in 2007.
 
 ## Solution
-After an inital analisys it was verified that only 7 bits would change to synthesize two APRS frequencies, 144.8 and 144.85 MHz.
+After an inital analysis it was verified that only 7 bits would change to synthesize two APRS frequencies, 144.8 and 144.85 MHz.
 
  * `PORTB` is then used to supply the needed bits.
  * `PORTA` is used to monitor PTT and channel changes.
